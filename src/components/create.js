@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 // This class stores the create component. 
 export class Create extends React.Component {
 
@@ -38,6 +39,24 @@ export class Create extends React.Component {
     onSubmit(e) {
         e.preventDefault();
         alert("Movie: " + this.state.Title + " " + this.state.Year + " " + this.state.Poster);
+
+        // Lab 6 - The title, year and poster are used here to make an object to be passed up to the server.
+        const newMovie = {
+            title: this.state.Title,
+            year: this.state.Year,
+            poster: this.state.Poster
+        }
+
+        // Lab 6 - Here the post request is made asynchronously to send data onto the server.
+        axios.post('http://localhost:4000/api/movies',newMovie)
+        
+        // Lab 6 - The .then method is the happy path and the .catch method is called if there is a bug.
+        .then((res)=>{
+            console.log(res)
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
 
     }
 

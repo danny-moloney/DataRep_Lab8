@@ -10,13 +10,13 @@ export class MovieItem extends React.Component {
             <div>
                 {/*Imported card stlye from bootstrap to give movie page a better UI */}
                 <Card>
-                    <Card.Header>{this.props.movie.Title}</Card.Header>
+                    <Card.Header>{this.props.movie.title}</Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
                             {/*Width and height tags used to decide the size of the movie posters */}
-                            <img src={this.props.movie.Poster} width="200" height="200"></img>
+                            <img src={this.props.movie.poster} width="200" height="200"></img>
                             <footer className="blockquote-footer">
-                                {this.props.movie.Year}
+                                {this.props.movie.year}
                             </footer>
                         </blockquote>
                     </Card.Body>

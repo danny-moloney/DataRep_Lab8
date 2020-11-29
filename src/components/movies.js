@@ -6,7 +6,9 @@ export class Movies extends React.Component{
 
     render(){
         return this.props.movies.map((movie)=>{
-            return <MovieItem movie={movie}></MovieItem>
+            // Lab 8 - The reloaded data from the database is passed from the parent to each 
+            // of the grandchildren using the reload data method here.
+            return <MovieItem movie={movie} ReloadData={this.props.ReloadData}></MovieItem>
 
         })
     }

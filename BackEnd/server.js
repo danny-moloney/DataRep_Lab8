@@ -89,7 +89,16 @@ app.get('/api/movies/:id', (req, res, next) => {
     });
 })
 
+// Lab 8 - This is listening for a http delete method, where the documents of the id that is being deleted will be passed up.
+app.delete('/api/movies/:id',(req,res)=>{
+    console.log('Delete movie: '+req.params.id);
+    
+    // Lab 8 - Here the id is of the movie being deleted is found and either an error or data is given back when the delete button is clicked.
+    MovieModel.findByIdAndDelete(req.params.id,(err, data)=>{
+        res.send(data);
+    })
 
+})
 
 
 
